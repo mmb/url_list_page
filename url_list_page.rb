@@ -13,7 +13,7 @@ $url_titles = UrlTitles::UrlTitles.new('url_titles_cache.yaml')
 
 js = <<-EOS
 $(document).ready(function() {
-  $('div.embed').toggle();
+  $('div.embed').toggle(false);
   $('input.show').click(function() {
     $(this).parent().children('div.embed').toggle('slow');
     if ($(this).attr('value') == 'Hide') {
