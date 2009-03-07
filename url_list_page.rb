@@ -44,7 +44,7 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
     xm.title('urls')
     xm.link(:rel => 'stylesheet', :type => 'text/css', :href => 'screen.css')
     xm.script('', :type => 'text/javascript',
-      :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js')
+      :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js')
   }
   xm.body {
     xm.ul {
@@ -61,7 +61,7 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
             xm.text! ' '
             xm.input(:type => 'button', :class => 'show', :value => 'Show')
             xm.input(:type => 'hidden', :class => 'embed', :value => embed)
-            xm.div(:class => 'embed')
+            xm.div(:class => 'embed') { }
           end
         } unless url.empty?
       end
