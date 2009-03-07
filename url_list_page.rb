@@ -15,7 +15,9 @@ js = <<-EOS
 $(document).ready(function() {
   $('div.embed').toggle(false);
   $('input.show').click(function() {
-    $(this).parent().children('div.embed').toggle('slow');
+    $(this).nextAll('div.embed:not(:empty)').toggle('slow');
+    var embed = $(this).nextAll('input.embed').attr('value');
+    $(this).nextAll('div.embed:empty').html(embed).toggle('slow');
     if ($(this).attr('value') == 'Hide') {
       $(this).attr('value', 'Show');
     } else {
@@ -57,8 +59,9 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
           end
           unless embed.nil?
             xm.text! ' '
-            xm.input(:type => 'button', :value => 'Show', :class => 'show')
-            xm.div(:class => 'embed') { xm << embed }
+            xm.input(:type => 'button', :class => 'show', :value => 'Show')
+	    xm.input(:type => 'hidden', :class => 'embed', :value => embed)
+            xm.div(:class => 'embed')
 	  end
         } unless url.empty?
       end
