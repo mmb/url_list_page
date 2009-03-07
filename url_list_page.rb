@@ -51,7 +51,7 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
       STDIN.each_line do |url|
         url.strip!
         xm.li {
-          xm.a($url_titles.get(url), :href => url)
+          xm.a($url_titles.get(url).strip, :href => url)
           embed = nil
           embedders.each do |embedder|
             embed = embedder.embed(url)
