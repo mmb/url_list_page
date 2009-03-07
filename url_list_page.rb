@@ -60,9 +60,9 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
           unless embed.nil?
             xm.text! ' '
             xm.input(:type => 'button', :class => 'show', :value => 'Show')
-	    xm.input(:type => 'hidden', :class => 'embed', :value => embed)
+            xm.input(:type => 'hidden', :class => 'embed', :value => embed)
             xm.div(:class => 'embed')
-	  end
+          end
         } unless url.empty?
       end
     }
