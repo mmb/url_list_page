@@ -42,7 +42,7 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
   :'xml:lang' => 'en') {
   xm.head {
     xm.title('urls')
-    xm.meta(:name => 'viewport', :content => 'width=320,initial-scale=1')
+    xm.meta(:name => 'viewport', :content => 'initial-scale=1.0')
     xm.link(:rel => 'stylesheet', :type => 'text/css', :href => 'screen.css')
     xm.script('', :type => 'text/javascript',
       :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js')
