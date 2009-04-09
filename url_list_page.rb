@@ -16,12 +16,12 @@ $(document).ready(function() {
   $('div.embed').toggle(false);
   $('input.show').click(function() {
     $(this).nextAll('div.embed:not(:empty)').toggle('slow');
-    var embed = $(this).nextAll('input.embed').attr('value');
+    var embed = $(this).nextAll('input.embed').val();
     $(this).nextAll('div.embed:empty').html(embed).toggle('slow');
-    if ($(this).attr('value') == 'Hide') {
-      $(this).attr('value', 'Show');
+    if ($(this).val() == 'Hide') {
+      $(this).val('Show');
     } else {
-      $(this).attr('value', 'Hide');
+      $(this).val('Hide');
     }
   });
 });
