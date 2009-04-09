@@ -15,9 +15,12 @@ js = <<-EOS
 $(document).ready(function() {
   $('div.embed').toggle(false);
   $('input.show').click(function() {
-    $(this).nextAll('div.embed:not(:empty)').toggle('slow');
-    var embed = $(this).nextAll('input.embed').val();
-    $(this).nextAll('div.embed:empty').html(embed).toggle('slow');
+    $(this).nextAll('div.embed').toggle('slow', function() {
+	if ($(this).html().length == 0) {
+          var embed = $(this).prevAll('input.embed').val();
+          $(this).html(embed);
+	}
+    });
     if ($(this).val() == 'Hide') {
       $(this).val('Show');
     } else {
