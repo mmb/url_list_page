@@ -54,7 +54,7 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
     xm.ul {
       STDIN.each_line do |url|
         url.strip!
-        xm.li {
+        xm.li(:class => (STDIN.lineno % 2 == 0 ? 'even' : 'odd')) {
           xm.a($url_titles.get(url).strip, :href => url)
           embed = nil
           embedders.each do |embedder|
