@@ -46,7 +46,7 @@ module UrlTitles
                   unless content.nil?
                     match = content.match(/charset=([\w_.:-]+)/)
                     charset = match[1] unless match.nil?
-		  end
+                  end
                 end
 
                 result = HTMLEntities.new.decode(
