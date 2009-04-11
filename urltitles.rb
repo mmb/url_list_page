@@ -1,6 +1,7 @@
 require 'cachedhash'
 
 require 'cgi'
+require 'iconv'
 require 'net/http'
 require 'net/https'
 require 'open-uri'
@@ -28,15 +29,18 @@ module UrlTitles
           if http.request_head(uri_parsed.path)['content-type'].match(
             /^text\/html/)
 
-            doc = Hpricot(open(key, 'User-Agent' =>
-              'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.4) Gecko/20030624'))
+            f = open(key, 'User-Agent' =>
+              'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.4) Gecko/20030624')
+
+            doc = Hpricot(f)
 
             test_xpaths = ['//html/head/title', '//head/title', '//html/title',
               '//title']
 
             test_xpaths.each { |xpath|
               if !(doc/xpath).first.nil?
-                result = HTMLEntities.new.decode((doc/xpath).first.inner_html)
+                result = HTMLEntities.new.decode(
+                  Iconv.conv('utf-8', f.charset, (doc/xpath).first.inner_html))
                 break
               end
             }
