@@ -39,8 +39,18 @@ module UrlTitles
 
             test_xpaths.each { |xpath|
               if !(doc/xpath).first.nil?
+                charset = f.charset
+                content_type = doc.at("meta[@http-equiv='content-type']")
+                unless content_type.nil?
+                  content = content_type['content']
+                  unless content.nil?
+                    match = content.match(/charset=([\w_.:-]+)/)
+                    charset = match[1] unless match.nil?
+		  end
+                end
+
                 result = HTMLEntities.new.decode(
-                  Iconv.conv('utf-8', f.charset, (doc/xpath).first.inner_html))
+                  Iconv.conv('utf-8', charset, (doc/xpath).first.inner_html))
                 break
               end
             }
