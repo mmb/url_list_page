@@ -6,7 +6,7 @@ module EmbedYoutube
   def EmbedYoutube.youtube_id(url)
     match = Regexp.new('http://(?:(?:www|uk)\.)?youtube\.com/watch\?v=(.+?)(?:&|$)',
       Regexp::IGNORECASE).match(url)
-    match.captures[0] if match
+    match[1] if match
   end
 
   class Embedder

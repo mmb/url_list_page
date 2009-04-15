@@ -10,7 +10,7 @@ module EmbedFlickr
   def EmbedFlickr.flickr_id(url)
     match = Regexp.new('http://(?:www\.)?flickr\.com/photos/[^/]+?/(\\d+)',
       Regexp::IGNORECASE).match(url)
-    match.captures[0] if match
+    match[1] if match
   end
 
   class Embedder
