@@ -1,0 +1,42 @@
+body {
+  font-family : Georgia, serif;
+}
+
+ul {
+  list-style-type : none;
+  width : 600px;
+}
+
+li {
+  margin : 0;
+  padding : 0;
+}
+
+img {
+  border : 0;
+}
+
+li {
+  padding : 0.25em;
+}
+
+li.even {
+  background-color : #abbd5e;
+}
+
+li.even a:link, li.even a:visited {
+  color : #69160b;
+}
+
+li.odd {
+  background-color #fdf3a9;
+  border-bottom : 1px solid #d15326;
+}
+
+li.odd a:link, li.odd a:visited {
+  color : #3b5715;
+}
+
+a:link, a:visited {
+  text-decoration : none;
+}

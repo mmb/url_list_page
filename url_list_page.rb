@@ -9,6 +9,14 @@ require 'yaml'
 require 'rubygems'
 require 'builder'
 
+Options = {
+  :css => 'http://matthewm.boedicker.org/screen.css',
+  :title => 'urls',
+  :meta => [
+    {:name => 'viewport', :content => 'initial-scale=1.0'},
+    ],
+  }
+
 $url_titles = UrlTitles::UrlTitles.new('url_titles_cache.yaml')
 
 js = <<-EOS
@@ -44,9 +52,11 @@ puts xm.html(:xmlns => 'http://www.w3.org/1999/xhtml',
   :'xsi:schemaLocation' => 'http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd',
   :'xml:lang' => 'en') {
   xm.head {
-    xm.title('urls')
-    xm.meta(:name => 'viewport', :content => 'initial-scale=1.0')
-    xm.link(:rel => 'stylesheet', :type => 'text/css', :href => 'screen.css')
+    xm.title(Options[:title]) if Options[:title]
+    Options.fetch(:meta, []).each { |m| xm.meta(m) }
+    if Options[:css]
+      xm.link(:rel => 'stylesheet', :type => 'text/css', :href => Options[:css])
+    end
     xm.script('', :type => 'text/javascript',
       :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js')
   }
