@@ -22,7 +22,7 @@ module EmbedFlickr
         unless thumb.empty?
           xm = Builder::XmlMarkup.new
           xm.a(:href => url) {
-	    xm.img(:src => thumb, :alt => '')
+            xm.img(:src => thumb, :alt => '')
           }
         end
       end
