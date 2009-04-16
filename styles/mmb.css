@@ -17,12 +17,11 @@ img {
 }
 
 li {
-  padding : 0.5em 1em 0.5em 0.25em;
+  padding : 0.5em 1em 0.5em 1.5em;
 }
 
 li.odd {
   background-color : #abbd5e;
-  padding-left : 0.5em;
 }
 
 li.odd a:link, li.odd a:visited {
@@ -32,7 +31,7 @@ li.odd a:link, li.odd a:visited {
 li.even {
   background : url(http://matthewm.boedicker.org/img/shadow6.png) repeat-x;
   border-bottom : 1px solid #d15326;
-  padding-left : 2em;
+  padding-left : 2.5em;
 }
 
 li.even a:link, li.even a:visited {
