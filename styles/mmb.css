@@ -17,23 +17,25 @@ img {
 }
 
 li {
-  padding : 0.25em;
-}
-
-li.even {
-  background-color : #abbd5e;
-}
-
-li.even a:link, li.even a:visited {
-  color : #69160b;
+  padding : 0.5em 1em 0.5em 0.25em;
 }
 
 li.odd {
-  background-color #fdf3a9;
-  border-bottom : 1px solid #d15326;
+  background-color : #abbd5e;
+  padding-left : 0.5em;
 }
 
 li.odd a:link, li.odd a:visited {
+  color : #69160b;
+}
+
+li.even {
+  background : url(http://matthewm.boedicker.org/img/shadow6.png) repeat-x;
+  border-bottom : 1px solid #d15326;
+  padding-left : 2em;
+}
+
+li.even a:link, li.even a:visited {
   color : #3b5715;
 }
 
