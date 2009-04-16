@@ -100,7 +100,7 @@ open(options[:out], 'w') do |f|
         options[:in].each_line do |url|
           url.strip!
           xm.li(:class => (STDIN.lineno % 2 == 0 ? 'even' : 'odd')) {
-            xm.a($url_titles.get(url).strip, :href => url)
+            xm.a($url_titles.get(url).gsub(/\s+/, ' ').strip, :href => url)
             embed = nil
             embedders.each do |embedder|
               embed = embedder.embed(url)
