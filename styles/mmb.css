@@ -41,3 +41,7 @@ li.even a:link, li.even a:visited {
 a:link, a:visited {
   text-decoration : none;
 }
+
+a:hover {
+  text-decoration : underline;
+}
