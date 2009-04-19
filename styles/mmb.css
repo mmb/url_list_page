@@ -30,7 +30,6 @@ li.odd a:link, li.odd a:visited {
 
 li.even {
   background : url(http://matthewm.boedicker.org/img/shadow6.png) repeat-x;
-  border-bottom : 1px solid #d15326;
   padding-left : 2.5em;
 }
 
